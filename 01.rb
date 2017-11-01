@@ -1,9 +1,7 @@
-(1..30).each do |i|
-
-  if(i === 10 || i === 20 || i === 25)
-    puts "ruby"
+30.times do |i|
+  if [9, 19, 24].include? i
+    puts 'ruby'
   else
-    puts "I <3 ruby"
+    puts 'I <3 ruby'
   end
-
 end
