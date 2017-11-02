@@ -5,16 +5,8 @@ min = array.min
 max = array.max
 
 
-min_index = 0
-max_index = 0
-array.each_with_index do |elem, index|
-  case elem
-  when min
-    min_index = index
-  when max
-    max_index = index
-  end
-end
+p min_index = array.index(array.find { |i| i == min })
+p max_index = array.index(array.find { |i| i == max })
 
 min_index += 1
 
