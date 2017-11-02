@@ -1,4 +1,4 @@
-puts "Hello. Please enter a radius: "
+puts 'Hello. Please enter a radius: '
 
 r = gets.to_i
 y = r
