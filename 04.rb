@@ -2,10 +2,10 @@
  ar1=[]
  ar2=[]
 
- ar.each_with_index do |elem, i|
-   i.even?  ? ar1.push(ar[i]) : ar2.push(ar[i])
+ ar.each_with_index do |elem, index|
+  index.even? ? ar1.push(elem) : ar2.push(elem)
  end
  p 'Четные'
- ar1.each { |el| p el }
+ p ar1
  p 'Нечетные'
- ar2.each { |el| p el }
+ p ar2
