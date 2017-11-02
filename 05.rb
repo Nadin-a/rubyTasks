@@ -5,8 +5,8 @@ min = array.min
 max = array.max
 
 
-p min_index = array.index(array.find { |i| i == min })
-p max_index = array.index(array.find { |i| i == max })
+min_index = array.index(array.min)
+max_index = array.index(array.max)
 
 min_index += 1
 
