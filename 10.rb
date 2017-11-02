@@ -1,5 +1,5 @@
 a = (1...15).to_a
-a.delete(a.first)
+a.shift
 p 'В порядке убывания'
 p a.reverse!
 p 'Размер'
