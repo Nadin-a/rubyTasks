@@ -1,15 +1,11 @@
-#count = 0;
+puts 'Hello. Please enter a size of aray: '
+size = gets.to_i
 
-3.times do |i|
-  3.times do |j|
-
-      puts 3.times {
-        if i == j ? p = '0' :  p = '1'
-        end
-          print p }
-        end
-
-    end
-
-
+size.times do |i|
+  row = ''
+  size.times do |j|
+    row += i == j ? '1' : '0'
+  end
+  puts row
+end
 
