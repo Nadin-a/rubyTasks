@@ -1,11 +1,8 @@
- ar = [0, 1, 0, 3, 4, 8, 0]
- ar1=[]
- ar2=[]
+ arr = [0, 1, 0, 3, 4, 8, 0]
 
- ar.each_with_index do |elem, index|
-  index.even? ? ar1.push(elem) : ar2.push(elem)
- end
+ splitted = arr.partition {|item| arr.index(item).even?}
+
  p 'Четные'
- p ar1
+ p splitted.first
  p 'Нечетные'
- p ar2
+ p splitted.last
