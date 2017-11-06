@@ -3,7 +3,7 @@ text = 'Дан текст. Заменить все , на . и наоборот.
 text.map! do |ch|
   if ch == ','
     '.'
-  elsif ch == "."
+  elsif ch == '.'
     ','
   else
     ch
