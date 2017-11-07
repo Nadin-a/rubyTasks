@@ -43,14 +43,15 @@ class Robot
   def move
     case @direction
       when '^'
-        @coord +=10
+        @coord += 10
       when 'v'
-        @coord -=10
+        @coord -= 10
       when '>'
-        @coord -=1
+        @coord -= 1
       when '<'
-        @coord +=1
+        @coord += 1
     end
+
   end
 
   def report
