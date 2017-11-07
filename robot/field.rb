@@ -12,6 +12,24 @@ class Field
     ].freeze
   end
 
+
+  def fill_field()
+    row = Array.new(6) {|index| index}.reverse!
+    my_field = Array.new(5, row)
+
+    it = 0
+    my_field.size.times do |i|
+      my_field[i].size.times do |j|
+        my_field[i][j] += it
+        p it
+        break
+      end
+      it +=10
+    end
+    p my_field
+  end
+
+
   def show_field(coord, direction_of_robot)
     @field.size.times do |i|
       row = ''
