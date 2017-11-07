@@ -2,7 +2,7 @@ def formatize(str, type)
   str = str.split
   case type
   when :camel
-    str.map(&:capitalize).join('')
+    str.map(&:capitalize).join
   when :underscore
     str.map(&:downcase).join('_')
   when :css
