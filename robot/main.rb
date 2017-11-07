@@ -13,40 +13,23 @@ robot.place(command)
 
 puts 'Specify direction (NORTH, SOUTH, EAST, WEST)'
 command = gets
+command.strip!
 direction_of_robot = robot.choose_direction(command)
 
 while true
   puts 'Enter a command!'
   command = gets
-  command.sub!('\n', '')
-  p command
+  command.strip!
+  p robot.coord
   case command
     when 'MOVE'
+      p 'im move'
       robot.move
     when 'REPORT'
+      p 'im report'
       robot.report
     else
       direction_of_robot = robot.choose_direction(command)
   end
   field.show_field(robot.coord, direction_of_robot)
 end
-
-# puts 'Enter a command!'
-# command = 'MOVE'
-#
-# robot.move if command == 'MOVE'
-# robot.move if command == 'MOVE'
-#
-# field.show_field(robot.coord,direction_of_robot)
-# p ' '
-#
-# command = 'LEFT'
-# direction_of_robot = robot.choose_direction(command)
-#
-# command = 'MOVE'
-# robot.move if command == 'MOVE'
-#
-# field.show_field(robot.coord,direction_of_robot)
-#
-# command = 'REPORT'
-# robot.report if command == 'REPORT'
