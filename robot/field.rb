@@ -1,6 +1,6 @@
 class Field
 
-  attr_accessor  :field
+  attr_accessor :field
 
   def initialize
     @field = [
