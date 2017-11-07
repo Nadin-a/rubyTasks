@@ -40,17 +40,20 @@ class Robot
         end
   end
 
-  def move
+  def move(field)
+    step = @coord
     case @direction
       when '^'
-        @coord += 10
+        step += 10
       when 'v'
-        @coord -= 10
+        step -= 10
       when '>'
-        @coord -= 1
+        step -= 1
       when '<'
-        @coord += 1
+        step += 1
     end
+    @coord = step if field.field.map {|arr| arr.include?(step)}.include? true
+
 
   end
 
