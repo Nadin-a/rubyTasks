@@ -9,12 +9,12 @@ until y < -r do
   x = -r
   until x >= r_out do
     if x * x + y * y >= r_in * r_in && x * x + y * y <= r_out * r_out
-      p '*'
+      print '*'
     else
-      p ' '
+      print ' '
     end
     x += 0.5
   end
-  p "\n"
+  print "\n"
   y -= 1
 end
