@@ -1,37 +1,52 @@
-require './robot'
-require './field'
+require './interface'
 
-robot = Robot.new
-field = Field.new
+interface = Interface.new
+
+x = 0
+y = 0
+choice = 0
+
+until choice == 1 || choice == 2
+  puts 'Do you want to use 5x6 (press 1) or enter X and Y (press 2) ? '
+  choice = gets.to_i
+end
+
+case choice
+  when 1
+    puts 'X = 5 Y = 6'
+    x = 5
+    y = 6
+  when 2
+    puts 'Enter size of table'
+    until x.positive?
+      puts 'Enter x: '
+      x = gets.to_i
+      p 'your X  ' + x.to_s
+    end
+    until y.positive?
+      puts 'Enter y: '
+      y = gets.to_i
+      p 'your Y  ' + y.to_s
+    end
+end
+
+command = ''
+
+interface.create_table(x, y)
+
+until interface.robot.coord > -1
+  puts 'Place the robot! (PLACE X Y DIRECTION)'
+  command = gets
+  command.strip!
+  command.upcase!
+  interface.place_robot(command)
+end
 
 
-field.fill_field
-
-
-
-# puts 'Hello. Enter your command'
-#
-# puts 'Place the robot! (PLACE X Y)'
-# command = 'PLACE 0 1' #gets
-# robot.place(command)
-#
-# puts 'Specify direction (NORTH, SOUTH, EAST, WEST)'
-# command = gets
-# command.strip!
-# direction_of_robot = robot.choose_direction(command)
-#
-# while command != 'END'
-#   puts 'Enter a command!'
-#   command = gets
-#   command.strip!
-#   case command
-#     when 'MOVE'
-#       robot.move(field)
-#     when 'REPORT'
-#       robot.report
-#     else
-#       direction_of_robot = robot.choose_direction(command)
-#   end
-#   field.show_field(robot.coord, direction_of_robot)
-# end
-#
+until command == 'END'
+  puts 'Enter a command! (HELP for help, END for exit)'
+  command = gets
+  command.strip!
+  command.upcase!
+  interface.move_robot(command)
+end
