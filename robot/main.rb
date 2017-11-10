@@ -30,4 +30,3 @@ end
 
 interface = Interface.new(x, y)
 
-
