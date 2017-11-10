@@ -2,18 +2,12 @@ class Robot
 
   SIDES = %w[NORTH EAST SOUTH WEST].freeze
 
-  attr_accessor :coord
-  attr_accessor :direction
+  attr_accessor :robot_x, :robot_y, :direction
 
-  def initialize
-    @coord = -1
-    @direction = 'NORTH'
-  end
-
-  def place(array_with_info)
-    @direction = array_with_info.last
-    array_with_info.delete_if {|item| item == array_with_info.last}
-    @coord = array_with_info.join.to_i
+  def initialize(robot_x, robot_y, direction)
+    @robot_x = robot_x
+    @robot_y = robot_y
+    @direction = direction
   end
 
   def change_direction(rotation)
@@ -28,28 +22,33 @@ class Robot
   end
 
   def move(table)
-    step = @coord
+    step_x = @robot_x
+    step_y = @robot_y
     case @direction
       when 'NORTH'
-        step += 1
+        step_y += 1
       when 'EAST'
-        step += 10
+        step_x += 1
       when 'SOUTH'
-        step -= 1
+        step_y -= 1
       when 'WEST'
-        step -= 10
+        step_x -= 1
     end
+    check_borders(table, step_x, step_y)
+  end
 
-    if table.check_position(step)
-      @coord = step
+  def report
+    @robot_x.to_s + ' ' + @robot_y.to_s + ' '+ @direction
+  end
+
+  private
+
+  def check_borders(table, step_x, step_y)
+    if table.check_borders(step_x, step_y)
+      @robot_x = step_x
+      @robot_y = step_y
     else
       p 'BORDER'
     end
   end
-
-  def report
-    p @coord < 10 ? '0:' + @coord.to_s : @coord.to_s.split('').join(':').to_s + ' ' + @direction
-  end
-
-
 end

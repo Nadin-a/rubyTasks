@@ -1,7 +1,5 @@
 require './interface'
 
-interface = Interface.new
-
 x = 0
 y = 0
 choice = 0
@@ -30,23 +28,6 @@ case choice
     end
 end
 
-command = ''
-
-interface.create_table(x, y)
-
-until interface.robot.coord > -1
-  puts 'Place the robot! (PLACE X Y DIRECTION)'
-  command = gets
-  command.strip!
-  command.upcase!
-  interface.place_robot(command)
-end
+interface = Interface.new(x, y)
 
 
-until command == 'END'
-  puts 'Enter a command! (HELP for help, END for exit)'
-  command = gets
-  command.strip!
-  command.upcase!
-  interface.move_robot(command)
-end

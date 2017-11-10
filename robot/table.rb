@@ -1,14 +1,13 @@
 class Table
-  attr_accessor :coord_x
-  attr_accessor :coord_y
+  attr_accessor :height, :width
 
   def initialize(x, y)
-    @coord_x = x
-    @coord_y = y
+    @height = x
+    @width = y
   end
 
-  def check_position(coord)
-    (coord.positive? || coord == 0) && coord < @coord_x * 10 && coord % 10 != @coord_y && coord % 10 <= @coord_y-1
+  def check_borders?(robot_x, robot_y) 
+    robot_x < @height && robot_y < @width && (robot_x.positive? || robot_x == 0) && (robot_y.positive? || robot_y == 0)
   end
 
 end

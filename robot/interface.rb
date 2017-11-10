@@ -1,34 +1,57 @@
 require './robot'
 require './table'
 
+# + read
+# - execute
+
+
 class Interface
 
   attr_accessor :robot
-  attr_accessor :table
 
-  def initialize
-    @robot = Robot.new
-  end
-
-  def create_table(x, y)
+  def initialize(x, y)
     @table = Table.new(x, y)
+    get_command_to_place
+    read_command
   end
+
+  def get_command_to_place
+    command = ''
+    while @robot.nil?
+      puts 'Place the robot! (PLACE X Y DIRECTION)'
+      command = gets
+      command.strip!
+      command.upcase!
+      place_robot(command)
+    end
+  end
+
+  def read_command
+    command = ''
+    until command == 'END'
+      puts 'Enter a command! (HELP for help, END for exit)'
+      command = gets
+      command.strip!
+      command.upcase!
+      move_robot(command)
+    end
+  end
+
+  private
 
   def place_robot(command)
     command = check_correctness(command)
     if command.is_a? Array
-      coord_r = command[0..1].join.to_i
-      coord_x = @table.coord_x
-      coord_y = @table.coord_y
-      if @table.check_position(coord_r)
-        @robot.place(command)
+      robot_x = command[0].to_i
+      robot_y = command[1].to_i
+      dir = command[2]
+      if @table.check_borders(robot_x, robot_y)
+        @robot = Robot.new(robot_x, robot_y, dir)
       else
         p 'robot in`t on the table'
-        robot.coord = -1
       end
     end
   end
-
 
   def move_robot(command)
     case command
@@ -45,7 +68,6 @@ class Interface
     end
   end
 
-  private
 
   def check_correctness(command_with_coord)
     command_with_coord = command_with_coord.split
@@ -59,7 +81,6 @@ class Interface
     unless %w[NORTH EAST SOUTH WEST].include?(command_with_coord.last) #!!!!!!!!!!!!!!!!!!11
       errors += 'Direction must be NORTH or EAST or SOUTH or WEST '
     end
-
     if errors.empty?
       command_with_coord.shift
       command_with_coord
@@ -68,7 +89,6 @@ class Interface
       errors
     end
   end
-
 
 end
 
