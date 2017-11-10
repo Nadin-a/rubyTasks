@@ -21,24 +21,24 @@ class Robot
   end
 
   def move
-    @coord = next_step
+    @coord = check_next_position
   end
 
-  def next_step
-    step_x = @coord[:x]
-    step_y = @coord[:y]
+  def check_next_position
+    next_x = @coord[:x]
+    next_y = @coord[:y]
 
     case @direction
       when 'NORTH'
-        step_y += 1
+        next_y += 1
       when 'EAST'
-        step_x += 1
+        next_x += 1
       when 'SOUTH'
-        step_y -= 1
+        next_y -= 1
       when 'WEST'
-        step_x -= 1
+        next_x -= 1
     end
-    coord = {x: step_x, y: step_y}
+    position = {x: next_x, y: next_y}
   end
 
   def report

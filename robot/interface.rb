@@ -1,9 +1,10 @@
 require './robot'
 require './table'
+require './command'
 
 class Interface
 
-  attr_accessor :robot, :table
+  attr_accessor :robot, :table, :command
 
   def initialize(x, y)
     @table = Table.new(x, y)
@@ -15,84 +16,52 @@ class Interface
   def read
     p 'Enter your command'
     p 'Help: ' + (robot.nil? ? 'Place the robot! (PLACE X Y DIRECTION)' : 'Move robot! MOVE/REPORT/RIGHT/LEFT')
-    command = gets
-    command.strip!
-    command.upcase!
-    if validate(command)
-      execute(command)
+    @command = Command.new(gets.strip.upcase.split)
+    if @command.validate?(!@robot.nil?, !@table.nil?)
+      execute
     else
       read
     end
   end
 
-  def execute(command)
-    p 'Execution command: ' + command
-    unless @robot.nil?
-      case command
-        when 'MOVE'
-          step
-        when 'REPORT'
-          @robot.report
-        when 'RIGHT', 'LEFT'
-          @robot.change_direction(command)
-        when 'HELP'
-          p 'try MOVE/REPORT/RIGHT/LEFT'
-        when 'EXIT'
-          system.exit!
-        else
-          p 'Uncorrect command'
-      end
-    else
-      command = command.split
-      information = {x: command[1].to_i, y: command[2].to_i, dir: command[3]}
-      place_robot(information)
+  def execute
+    p 'Execution command: ' + @command.name
+    case @command.name
+      when 'PLACE'
+        if robot.nil?
+          information = {x: @command.args[1].to_i, y: @command.args[2].to_i, dir: @command.args[3]}
+          place_robot(information)
+        end
+      when 'MOVE'
+        step
+      when 'REPORT'
+        @robot.report
+      when 'RIGHT', 'LEFT'
+        @robot.change_direction(@command.name)
+      when 'HELP'
+        p 'try MOVE/REPORT/RIGHT/LEFT'
+      when 'EXIT'
+        system.exit!
     end
     read
   end
 
   def step
-    if @table.check_borders? @robot.next_step
+    if @table.check_borders? @robot.check_next_position
       @robot.move
     else
       p 'BORDER'
     end
   end
 
-  def validate(command)
-    if robot.nil?
-      command = command.split
-      errors = ''
-      unless command.first == 'PLACE'
-        errors += 'First word must be place. '
-      end
-      unless command.size == 4
-        errors += 'Uncorrect format of command. Try (PLACE X Y DIRECTION) '
-      end
-      unless Robot::SIDES.include?(command.last)
-        errors += 'Direction must be NORTH or EAST or SOUTH or WEST '
-      end
-
-      if errors.empty?
-        true
-      else
-        p errors
-        false
-      end
-    else
-      true
-    end
-  end
-
-  def place_robot(param = {})
-    if @table.check_borders?(param)
-      @robot = Robot.new(param)
+  def place_robot(position)
+    if @table.check_borders?(position)
+      @robot = Robot.new(position)
       p 'Robot on table!'
     else
       p 'Robot in`t on the table'
     end
   end
-
-
 
 end
 
