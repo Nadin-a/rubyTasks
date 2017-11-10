@@ -14,5 +14,10 @@ class HourlyEmployee < Employee
     super
     @salary = 20.8 * 8 * @rate
   end
+  #
+  # def to_s
+  #   super
+  #   "#{rate}"
+  # end
 
 end

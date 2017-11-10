@@ -1,6 +1,18 @@
 require './fixed_employee'
 require './hourly_employee'
 
+def search_file
+  p 'Enter path to file '
+  path = 'file_with_data.txt'#gets.strip
+  if File.exist? path
+    config = IO.read(path)
+   # p config
+  else
+    search_file
+  end
+end
+
+
 employee_list = [
     FixedEmployee.new('Jane', 8000), HourlyEmployee.new('John', 45),
     FixedEmployee.new('Stan', 8700), HourlyEmployee.new('Beverly', 70),
@@ -21,10 +33,9 @@ p ' '
 
 sorted_list.last(3).each {|emp| p emp.id}
 
-p 'Enter path to file '
-path = 'file_with_data.txt' #gets.strip
+search_file
 
-data = File.open(path, 'w') {|file| file.write employee_list}
+readable_file = employee_list.map {|emp| emp.to_s}
+data = File.open('file_with_data.txt', 'w') {|file| file.write readable_file}
 
-config = IO.read(path)
-p config
+
