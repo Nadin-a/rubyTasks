@@ -17,5 +17,4 @@ class HourlyEmployee < Employee
     @salary = 20.8 * 8 * @rate
   end
 
-
 end
