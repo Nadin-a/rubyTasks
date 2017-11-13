@@ -25,7 +25,7 @@ class FileHelper
     empl_list
   end
 
-  def selecting_file_for_writing(empl_list)
+  def write_list_to_selected_file(empl_list)
     p 'Specify file for writing'
     path = gets.strip
     File.open(path, 'w') {|file| file.write Marshal.dump(empl_list)}

@@ -16,5 +16,5 @@ sorted_list.first(5).each {|emp| p emp.name}
 p 'Last 3 id:'
 sorted_list.last(3).each {|emp| p emp.id}
 
-file_helper.selecting_file_for_writing(empl_list)
+file_helper.write_list_to_selected_file(empl_list)
 
