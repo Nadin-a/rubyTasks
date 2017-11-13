@@ -8,16 +8,14 @@ class HourlyEmployee < Employee
     @name = name
     @rate = rate
     super(name)
+    calculate_salary
   end
 
+  private
+
   def calculate_salary
-    super
     @salary = 20.8 * 8 * @rate
   end
-  #
-  # def to_s
-  #   super
-  #   "#{rate}"
-  # end
+
 
 end

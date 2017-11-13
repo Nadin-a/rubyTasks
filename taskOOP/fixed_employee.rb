@@ -8,10 +8,12 @@ class FixedEmployee < Employee
     @name = name
     @fixed_salary = fixed_salary
     super(name)
+    calculate_salary
   end
 
+  private
+
   def calculate_salary
-    super
     @salary = @fixed_salary
   end
 

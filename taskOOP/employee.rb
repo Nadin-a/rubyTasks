@@ -1,6 +1,9 @@
+require "yaml"
+
 class Employee
 
   @@count = 0
+  MESS = "SYSTEM ERROR: method missing"
 
   attr_accessor :id, :name, :salary
 
@@ -13,10 +16,10 @@ class Employee
     "#{self.id} #{self.name} #{self.salary}"
   end
 
-  protected
+  private
 
   def calculate_salary
-
+    raise MESS;
   end
 
 end
