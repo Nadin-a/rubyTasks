@@ -1,5 +1,3 @@
-require "yaml"
-
 class Employee
 
   @@count = 0
