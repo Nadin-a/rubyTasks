@@ -38,5 +38,8 @@ sorted_list.first(5).each { |emp| p emp.name }
 p 'Last 3 id:'
 sorted_list.last(3).each { |emp| p emp.id }
 
-File.open('file_with_data', 'w') {|file| file.write Marshal.dump(empl_list)}
+p 'Select file for writing:'
+path = gets.strip
+File.open(path, 'w') {|file| file.write Marshal.dump(empl_list)}
+
 

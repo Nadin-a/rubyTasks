@@ -18,3 +18,4 @@ class HourlyEmployee < Employee
   end
 
 end
+

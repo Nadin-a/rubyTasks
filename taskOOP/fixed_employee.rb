@@ -18,3 +18,4 @@ class FixedEmployee < Employee
   end
 
 end
+
