@@ -15,6 +15,9 @@ class HourlyEmployee < Employee
     "#{self.class} #{self.name} #{self.rate}"
   end
 
+  def to_json
+    { id: @id.to_s, name: @name, rate:  @rate.to_s }
+  end
 
   private
 
