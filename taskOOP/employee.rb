@@ -10,8 +10,8 @@ class Employee
     @name = name
   end
 
-  def to_s
-    "#{self.id} #{self.name} #{self.salary}"
+  def show
+    p @id.to_s + ' ' + @name + ' ' + @salary.to_s
   end
 
   private

@@ -11,6 +11,11 @@ class HourlyEmployee < Employee
     calculate_salary
   end
 
+  def to_s
+    "#{self.class} #{self.name} #{self.rate}"
+  end
+
+
   private
 
   def calculate_salary

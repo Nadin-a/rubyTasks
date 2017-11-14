@@ -11,6 +11,11 @@ class FixedEmployee < Employee
     calculate_salary
   end
 
+  def to_s
+    "#{self.class} #{self.name} #{self.fixed_salary}"
+  end
+
+
   private
 
   def calculate_salary
