@@ -40,6 +40,11 @@ case choice
     ]
 end
 
+if employee_list.empty?
+  p 'List is empty'
+  system.exit!
+end
+
 p 'List:'
 employee_list.each(&:show)
 
