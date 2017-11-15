@@ -1,11 +1,11 @@
 pay_type|ID|name|rate
-monthly|e7061853e35da6d605a6f1db3086de64|Jane J. Osborn|8000
-hourly|e957cb963d443cec04c4fcae52c0d3d1|David E. Caudill|45
-monthly|a46ec9667b20c47d193a0ec9bea999ee|Max N. Torres|8700
-hourly|f5620469af5dcdf11111d1c85d9fa289|Clara G. Manley|70
-hourly|7f0b251ce9fec5794210d0759ae6ef9e|Kenny S. Nelson|35
-monthly|dee2b7ab217623052b2a9c5bc37be6c1|Kristin G. Sachs|6750
-monthly|d91aa508cea56d7296f361f40968a11d|Donald R. Koontz|8700
-hourly|e4d77324290e2e18df39cc2417dd35f7|Marion T. Green|60
-hourly|9ddfe1ec1fd97644b1d1784971db407d|John Weinberg|45
-monthly|41ed7961bf177e7bf2daee8aa7cc371a|Anita J. Isaacs|7500
+monthly|53ec85b404a14814a268a5a23742775c|Jane J. Osborn|8000
+hourly|9d6366fddb347d77072e6feb3c8e91f6|David E. Caudill|45
+monthly|71bad9f001dd478200648df4458c0f0f|Max N. Torres|8700
+hourly|b5f8a759519798f1b04e3424cf3b9ccb|Clara G. Manley|70
+hourly|9933c246bc4c8c7974766aac855d67a0|Kenny S. Nelson|35
+monthly|22607499db1b77a2d914502e827dc84f|Kristin G. Sachs|6750
+monthly|e8bdfe7bcf8904eb4a71a4f2b730875c|Donald R. Koontz|8700
+hourly|e4b437cc3fa6173e40ed35909dfb002f|Marion T. Green|60
+hourly|2699e3a6b2b4b5807aca002d7aa2cbe0|John Weinberg|45
+monthly|cc4c16412412b29df013c96813f69afd|Anita J. Isaacs|7500
