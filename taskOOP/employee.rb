@@ -1,7 +1,7 @@
 class Employee
 
   @@count = 0
-  MESS = "SYSTEM ERROR: method missing"
+  MESS = 'SYSTEM ERROR: method missing'.freeze
 
   attr_accessor :id, :name, :salary
 
