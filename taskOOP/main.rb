@@ -2,7 +2,6 @@ require './fixed_employee'
 require './hourly_employee'
 require './file_helper'
 
-
 choice = 0
 
 include FileHelper

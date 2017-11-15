@@ -17,7 +17,7 @@ module FileHelper
   def write(list_for_writing)
     path = gets.strip
     begin
-      CSV.open(path + '.csv', 'wb', col_sep: SEPARATOR, write_headers: true) do |csv_object|
+      CSV.open("#{path}.csv", 'wb', col_sep: SEPARATOR, write_headers: true) do |csv_object|
         csv_object << %w[class ID name rate]
         list_for_writing.each do |item|
           csv_object << item.to_csv
@@ -30,5 +30,3 @@ module FileHelper
   end
 
 end
-
-
