@@ -1,7 +1,4 @@
 require 'csv'
-require 'json'
-require './fixed_employee'
-require './hourly_employee'
 
 module FileHelper
 
