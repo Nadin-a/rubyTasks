@@ -1,10 +1,11 @@
-FixedEmployee|7096730b9889910640616c416b483c5f|Jane J. Osborn|8000
-HourlyEmployee|4f097bc1c7e16b6052ebcc4b70b0111e|David E. Caudill|45
-FixedEmployee|778014e7a7193eb6fdd227d904a09773|Max N. Torres|8700
-HourlyEmployee|55559f46236c41b7cb0dcda2e21158ca|Clara G. Manley|70
-HourlyEmployee|0fa067b38b8097ce92896d52caed26d0|Kenny S. Nelson|35
-FixedEmployee|f7e04dbb19708105fedc0a9fc49a55b1|Kristin G. Sachs|6750
-FixedEmployee|3fba5bcb753a9a9492dcf4d4605f2c26|Donald R. Koontz|8700
-HourlyEmployee|08b8f9c9e437944fe34220ba6e62ac05|Marion T. Green|60
-HourlyEmployee|fdf9310ad9602bbc07bb03511f010f12|John Weinberg|45
-FixedEmployee|3ac840027f1cf664cb8a7c5415b5546b|Anita J. Isaacs|7500
+class,|ID,|name,|salary
+FixedEmployee|91459822adb2d0cf84cf326afef6722a|Jane J. Osborn|8000
+HourlyEmployee|447e59a27c0f68b785a31b07337fe49d|David E. Caudill|45
+FixedEmployee|0a8c42b78009b749121010626a391e7a|Max N. Torres|8700
+HourlyEmployee|a9ce79c7ec2f5738b5f7442c3490fe52|Clara G. Manley|70
+HourlyEmployee|5e51667e625e4ef5e7f4fd9e84eedd45|Kenny S. Nelson|35
+FixedEmployee|4ac9b3927eb77fbdf178b77cab700987|Kristin G. Sachs|6750
+FixedEmployee|471225304329ffad356688224f59cb7f|Donald R. Koontz|8700
+HourlyEmployee|bee049f28a037c9456520784961f9536|Marion T. Green|60
+HourlyEmployee|cb0e4813b0d344f72b694fc702f4d07c|John Weinberg|45
+FixedEmployee|d54f31386606798116c7c90b24173850|Anita J. Isaacs|7500

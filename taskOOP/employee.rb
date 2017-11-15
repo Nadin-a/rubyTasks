@@ -1,11 +1,13 @@
+require 'securerandom'
+
 class Employee
 
   MESS = 'SYSTEM ERROR: method missing'.freeze
 
   attr_accessor :id, :name, :salary
 
-  def initialize(id, name)
-    @id = id
+  def initialize(name)
+    @id = SecureRandom.hex
     @name = name
   end
 

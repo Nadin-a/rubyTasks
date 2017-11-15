@@ -4,14 +4,14 @@ class HourlyEmployee < Employee
 
   attr_accessor :rate
 
-  def initialize(id, name, rate)
+  def initialize(name, rate)
     @rate = rate
-    super(id,name)
+    super(name)
     calculate_salary
   end
 
-  def to_s
-    ["#{self.class},#{self.id},#{self.name},#{self.rate}"].join('|')
+  def to_csv
+    [self.class, @id, @name, @rate]
   end
 
   private

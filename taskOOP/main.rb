@@ -1,7 +1,7 @@
 require './fixed_employee'
 require './hourly_employee'
 require './file_helper'
-require 'securerandom'
+
 
 choice = 0
 
@@ -21,23 +21,23 @@ case choice
     data.each do |item|
       case item[0]
         when 'FixedEmployee'
-          employee_list << FixedEmployee.new(item[1], item[2], item[3].to_i)
+          employee_list << FixedEmployee.new(item[2], item[3].to_i)
         when 'HourlyEmployee'
-          employee_list << HourlyEmployee.new(item[1], item[2], item[3].to_i)
+          employee_list << HourlyEmployee.new(item[2], item[3].to_i)
       end
     end
   when 2
     employee_list = [
-        FixedEmployee.new(SecureRandom.hex, 'Jane J. Osborn', 8000),
-        HourlyEmployee.new(SecureRandom.hex, 'David E. Caudill', 45),
-        FixedEmployee.new(SecureRandom.hex, 'Max N. Torres', 8700),
-        HourlyEmployee.new(SecureRandom.hex, 'Clara G. Manley', 70),
-        HourlyEmployee.new(SecureRandom.hex, 'Kenny S. Nelson', 35),
-        FixedEmployee.new(SecureRandom.hex, 'Kristin G. Sachs', 6750),
-        FixedEmployee.new(SecureRandom.hex, 'Donald R. Koontz', 8700),
-        HourlyEmployee.new(SecureRandom.hex, 'Marion T. Green', 60),
-        HourlyEmployee.new(SecureRandom.hex, 'John Weinberg', 45),
-        FixedEmployee.new(SecureRandom.hex, 'Anita J. Isaacs', 7500)
+        FixedEmployee.new('Jane J. Osborn', 8000),
+        HourlyEmployee.new( 'David E. Caudill', 45),
+        FixedEmployee.new( 'Max N. Torres', 8700),
+        HourlyEmployee.new( 'Clara G. Manley', 70),
+        HourlyEmployee.new('Kenny S. Nelson', 35),
+        FixedEmployee.new('Kristin G. Sachs', 6750),
+        FixedEmployee.new( 'Donald R. Koontz', 8700),
+        HourlyEmployee.new('Marion T. Green', 60),
+        HourlyEmployee.new('John Weinberg', 45),
+        FixedEmployee.new('Anita J. Isaacs', 7500)
     ]
 end
 
