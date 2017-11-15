@@ -18,8 +18,7 @@ case choice
   when 1
     p 'Enter path to file for reading data'
     data = FileHelper.read
-    data.each do |line|
-      item = line[0].split('|')
+    data.each do |item|
       case item[0]
         when 'FixedEmployee'
           employee_list << FixedEmployee.new(item[1], item[2], item[3].to_i)
@@ -29,7 +28,7 @@ case choice
     end
   when 2
     employee_list = [
-        FixedEmployee.new(SecureRandom.hex, 'Jane Osborn', 8000),
+        FixedEmployee.new(SecureRandom.hex, 'Jane J. Osborn', 8000),
         HourlyEmployee.new(SecureRandom.hex, 'David E. Caudill', 45),
         FixedEmployee.new(SecureRandom.hex, 'Max N. Torres', 8700),
         HourlyEmployee.new(SecureRandom.hex, 'Clara G. Manley', 70),
@@ -55,6 +54,5 @@ p 'Last 3 id:'
 sorted_list.last(3).each { |emp| p emp.id }
 
 p 'Specify file for writing'
-path = gets.strip
-FileHelper.write(path, employee_list)
+FileHelper.write(employee_list)
 

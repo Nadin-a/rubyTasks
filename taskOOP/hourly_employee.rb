@@ -11,7 +11,7 @@ class HourlyEmployee < Employee
   end
 
   def to_s
-    "#{self.class}#{'|'}#{self.id}#{'|'}#{self.name}#{'|'}#{self.rate}"
+    ["#{self.class},#{self.id},#{self.name},#{self.rate}"].join('|')
   end
 
   private

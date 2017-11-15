@@ -12,11 +12,17 @@ module FileHelper
     end
   end
 
-  def write(path, list_for_writing)
-    CSV.open(path + '.csv', 'wb', col_sep: '|', :write_headers => true) do |csv_object|
+  def write(list_for_writing)
+    path = gets.strip
+    begin
+    CSV.open(path + '.csv', 'wb', col_sep: '|') do |csv_object|
       list_for_writing.each do |item|
         csv_object << item.to_s.parse_csv
       end
+    end
+    rescue Errno::ENOENT => ex
+      p ex
+      write(list_for_writing)
     end
   end
 

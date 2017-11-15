@@ -11,7 +11,7 @@ class FixedEmployee < Employee
   end
 
   def to_s
-    "#{self.class}#{'|'}#{self.id}#{'|'}#{self.name}#{'|'}#{self.fixed_salary}"
+    ["#{self.class},#{self.id},#{self.name},#{self.fixed_salary}"].join('|')
   end
 
   private
