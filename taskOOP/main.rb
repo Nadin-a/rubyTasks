@@ -45,7 +45,7 @@ p 'List:'
 employee_list.each(&:show)
 
 p 'Sorted list:'
-sorted_list = employee_list.sort_by { |emp| [-emp.salary, emp.name] }.each(&:show)
+sorted_list = employee_list.sort_by { |emp| [-emp.calculate_salary, emp.name] }.each(&:show)
 
 p 'First five names:'
 sorted_list.first(5).each { |emp| p emp.name }

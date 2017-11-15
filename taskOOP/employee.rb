@@ -12,7 +12,12 @@ class Employee
   end
 
   def show
-    p @id + ' ' + @name + ' ' + @salary.to_s
+    p @id + ' ' + @name + ' ' + calculate_salary.to_s
+  end
+
+
+  def to_csv
+    [self.class, @id, @name, @salary]
   end
 
   private
