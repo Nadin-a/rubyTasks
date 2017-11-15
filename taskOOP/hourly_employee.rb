@@ -11,10 +11,6 @@ class HourlyEmployee < Employee
     calculate_salary
   end
 
-  def to_s
-    "#{self.class} #{self.name} #{self.rate}"
-  end
-
   def to_hash
     { class: self.class.to_s, name: @name, rate:  @rate }
   end

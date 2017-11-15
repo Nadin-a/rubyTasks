@@ -11,10 +11,6 @@ class FixedEmployee < Employee
     calculate_salary
   end
 
-  def to_s
-    "#{self.class} #{self.name} #{self.fixed_salary}"
-  end
-
   def to_hash
     { class: self.class.to_s, name: @name, fixed_salary: @fixed_salary }
   end
