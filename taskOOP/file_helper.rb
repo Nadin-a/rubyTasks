@@ -18,7 +18,7 @@ module FileHelper
     path = gets.strip
     begin
       CSV.open("#{path}.csv", 'wb', col_sep: SEPARATOR, write_headers: true) do |csv_object|
-        csv_object << %w[class ID name rate]
+        csv_object << %w[pay_type ID name rate]
         list_for_writing.each do |item|
           csv_object << item.to_csv
         end

@@ -3,6 +3,8 @@ require 'securerandom'
 class Employee
 
   MESS = 'SYSTEM ERROR: method missing'.freeze
+  HOUR = 'hourly'
+  MONTH = 'monthly'
 
   attr_accessor :id, :name, :rate
 
@@ -18,7 +20,14 @@ class Employee
 
 
   def to_csv
-    [self.class, @id, @name, @rate]
+    pay_type =
+        case self.class.to_s
+          when 'HourlyEmployee'
+            HOUR
+          when 'FixedEmployee'
+            MONTH
+        end
+    [pay_type, @id, @name, @rate]
   end
 
   private
