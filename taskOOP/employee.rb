@@ -1,17 +1,16 @@
 class Employee
 
-  @@count = 0
   MESS = 'SYSTEM ERROR: method missing'.freeze
 
   attr_accessor :id, :name, :salary
 
-  def initialize(name)
-    @id = @@count += 1
+  def initialize(id, name)
+    @id = id
     @name = name
   end
 
   def show
-    p @id.to_s + ' ' + @name + ' ' + @salary.to_s
+    p @id + ' ' + @name + ' ' + @salary.to_s
   end
 
   private

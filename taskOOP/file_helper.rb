@@ -7,18 +7,18 @@ module FileHelper
 
   def read
     path = gets.strip
-    if File.exist? path + '.csv'
-      data = CSV.read(path + '.csv')
-    else
-      p 'File doesn`t exist'
+    begin
+      data = CSV.read("#{path}" + "#{'.csv'}", {:col_sep => '|'})
+    rescue Errno::ENOENT => ex
+      p ex
       read
     end
   end
 
   def write(path, list_for_writing)
-    CSV.open(path + '.csv', 'wb') do |csv_object|
+    CSV.open(path + '.csv', 'wb', col_sep: '|', :write_headers => true) do |csv_object|
       list_for_writing.each do |item|
-        csv_object << [item.to_hash]
+        csv_object << item.to_s.parse_csv
       end
     end
   end

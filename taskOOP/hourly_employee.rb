@@ -4,15 +4,14 @@ class HourlyEmployee < Employee
 
   attr_accessor :rate
 
-  def initialize(name, rate)
-    @name = name
+  def initialize(id, name, rate)
     @rate = rate
-    super(name)
+    super(id,name)
     calculate_salary
   end
 
-  def to_hash
-    { class: self.class.to_s, name: @name, rate:  @rate }
+  def to_s
+    "#{self.class}#{'|'}#{self.id}#{'|'}#{self.name}#{'|'}#{self.rate}"
   end
 
   private

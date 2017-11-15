@@ -1,6 +1,7 @@
 require './fixed_employee'
 require './hourly_employee'
 require './file_helper'
+require 'securerandom'
 
 choice = 0
 
@@ -18,21 +19,26 @@ case choice
     p 'Enter path to file for reading data'
     data = FileHelper.read
     data.each do |line|
-      item = eval(line[0])
-      case item[:class]
+      item = line[0].split('|')
+      case item[0]
         when 'FixedEmployee'
-          employee_list << FixedEmployee.new(item[:name], item[:fixed_salary])
+          employee_list << FixedEmployee.new(item[1], item[2], item[3].to_i)
         when 'HourlyEmployee'
-          employee_list << HourlyEmployee.new(item[:name], item[:rate])
+          employee_list << HourlyEmployee.new(item[1], item[2], item[3].to_i)
       end
     end
   when 2
     employee_list = [
-        FixedEmployee.new('Jane', 8000), HourlyEmployee.new('Ron', 45),
-        FixedEmployee.new('Stan', 8700), HourlyEmployee.new('Beverly', 70),
-        HourlyEmployee.new('Jim', 35), FixedEmployee.new('Iren', 6750),
-        FixedEmployee.new('Bill', 8700), HourlyEmployee.new('Susan', 60),
-        HourlyEmployee.new('John', 45), FixedEmployee.new('Kate', 7500)
+        FixedEmployee.new(SecureRandom.hex, 'Jane Osborn', 8000),
+        HourlyEmployee.new(SecureRandom.hex, 'David E. Caudill', 45),
+        FixedEmployee.new(SecureRandom.hex, 'Max N. Torres', 8700),
+        HourlyEmployee.new(SecureRandom.hex, 'Clara G. Manley', 70),
+        HourlyEmployee.new(SecureRandom.hex, 'Kenny S. Nelson', 35),
+        FixedEmployee.new(SecureRandom.hex, 'Kristin G. Sachs', 6750),
+        FixedEmployee.new(SecureRandom.hex, 'Donald R. Koontz', 8700),
+        HourlyEmployee.new(SecureRandom.hex, 'Marion T. Green', 60),
+        HourlyEmployee.new(SecureRandom.hex, 'John Weinberg', 45),
+        FixedEmployee.new(SecureRandom.hex, 'Anita J. Isaacs', 7500)
     ]
 end
 
@@ -40,7 +46,7 @@ p 'List:'
 employee_list.each(&:show)
 
 p 'Sorted list:'
-sorted_list = employee_list.sort_by { |emp| [-emp.salary, emp.name]}.each(&:show)
+sorted_list = employee_list.sort_by { |emp| [-emp.salary, emp.name] }.each(&:show)
 
 p 'First five names:'
 sorted_list.first(5).each { |emp| p emp.name }
