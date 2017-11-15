@@ -3,8 +3,6 @@ require 'securerandom'
 class Employee
 
   MESS = 'SYSTEM ERROR: method missing'.freeze
-  HOUR = 'hourly'
-  MONTH = 'monthly'
 
   attr_accessor :id, :name, :rate
 
@@ -23,9 +21,9 @@ class Employee
     pay_type =
         case self.class.to_s
           when 'HourlyEmployee'
-            HOUR
+            'hourly'
           when 'FixedEmployee'
-            MONTH
+            'monthly'
         end
     [pay_type, @id, @name, @rate]
   end

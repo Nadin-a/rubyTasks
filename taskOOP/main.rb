@@ -19,9 +19,9 @@ case choice
     data = FileHelper.read
     data.each do |item|
       case item[0]
-        when Employee::MONTH
+        when FixedEmployee::MONTH
           employee_list << FixedEmployee.new(item[2], item[3].to_i)
-        when Employee::HOUR
+        when HourlyEmployee::HOUR
           employee_list << HourlyEmployee.new(item[2], item[3].to_i)
       end
     end
