@@ -4,11 +4,12 @@ class Employee
 
   MESS = 'SYSTEM ERROR: method missing'.freeze
 
-  attr_accessor :id, :name, :salary
+  attr_accessor :id, :name, :rate
 
-  def initialize(name)
+  def initialize(name, rate)
     @id = SecureRandom.hex
     @name = name
+    @rate = rate
   end
 
   def show
@@ -17,7 +18,7 @@ class Employee
 
 
   def to_csv
-    [self.class, @id, @name, @salary]
+    [self.class, @id, @name, @rate]
   end
 
   private
