@@ -12,8 +12,8 @@ class Employee
     @rate = rate
   end
 
-  def show
-    p @id + ' ' + @name + ' ' + calculate_salary.to_s
+  def to_s
+    "#{self.id} #{self.name} #{calculate_salary}"
   end
 
   private
