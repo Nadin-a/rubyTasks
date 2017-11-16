@@ -42,7 +42,7 @@ class Robot
   end
 
   def report
-    p "#{coord[:x].to_s}  :  #{coord[:y].to_s}  #{@direction}"
+    p "#{coord[:x]}  :  #{coord[:y]}  #{@direction}"
   end
 
 end
