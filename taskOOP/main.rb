@@ -15,8 +15,9 @@ employee_list= []
 
 case choice
   when 1
-    p 'Enter path to file for reading data'
+    p 'Enter path to file for reading data (.csv or .json)'
     data = FileHelper.read
+
     if data.is_a? CSV::Table
       data.each do |item|
         case item[0]
@@ -27,9 +28,16 @@ case choice
         end
       end
     else
-      p 'JSON'
-      p JSON.load(data)
+      JSON.load(data).each do |item|
+        case item['pay_type']
+          when FixedEmployee::MONTH
+            employee_list << FixedEmployee.new(item['name'], item['rate'])
+          when HourlyEmployee::HOUR
+            employee_list << HourlyEmployee.new(item['name'], item['rate'])
+        end
+      end
     end
+
   when 2
     employee_list = [
         FixedEmployee.new('Jane J. Osborn', 8000),
@@ -62,6 +70,6 @@ sorted_list.first(5).each {|emp| p emp.name}
 p 'Last 3 id:'
 sorted_list.last(3).each {|emp| p emp.id}
 
-p 'Specify file for writing'
+p 'Specify file for writing (.csv or .json)'
 FileHelper.write(employee_list)
 

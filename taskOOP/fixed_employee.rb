@@ -8,6 +8,10 @@ class FixedEmployee < Employee
     [MONTH, @id, @name, @rate]
   end
 
+  def to_hash
+    { pay_type: MONTH, id: @id, name: @name, rate: @rate }
+  end
+
   def calculate_salary
     @rate
   end

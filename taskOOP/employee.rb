@@ -16,9 +16,6 @@ class Employee
     p @id + ' ' + @name + ' ' + calculate_salary.to_s
   end
 
-  def to_hash
-    { pay_type: self.class, id: @id, name: @name, rate: @rate }
-  end
   private
 
   def calculate_salary

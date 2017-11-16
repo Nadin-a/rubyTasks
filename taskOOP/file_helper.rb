@@ -7,46 +7,47 @@ module FileHelper
 
   def read
     path = gets.strip
-    #begin
-    if path.end_with?('.json')
-      File.read(path)
-    elsif path.end_with?('.csv')
-      CSV.read(path, headers: true, col_sep: SEPARATOR)
-    else
-      p 'Uncorrect format of file'
+    begin
+      if path.end_with?('.json')
+        File.read(path)
+      elsif path.end_with?('.csv')
+        CSV.read(path, headers: true, col_sep: SEPARATOR)
+      else
+        p 'Uncorrect format of file'
+        read
+      end
+    rescue Errno::ENOENT => ex
+      p ex
       read
     end
-    # rescue Errno::ENOENT => ex
-    #   p ex
-    #   read
-    # end
   end
 
   def write(list_for_writing)
     path = gets.strip
-    # begin
-    if path.end_with?('.json')
-      write_json(path, list_for_writing)
-    elsif path.end_with?('.csv')
-      write_csv(path, list_for_writing)
-    else
-      p 'Uncorrect format of file'
+    begin
+      if path.end_with?('.json')
+        write_json(path, list_for_writing)
+      elsif path.end_with?('.csv')
+        write_csv(path, list_for_writing)
+      else
+        p 'Uncorrect format of file'
+        write(list_for_writing)
+      end
+    rescue Errno::ENOENT => ex
+      p ex
       write(list_for_writing)
     end
-    # rescue Errno::ENOENT => ex
-    #   p ex
-    #   write(list_for_writing)
-    # end
   end
 
   private
 
   def write_json(path, list_for_writing)
+    list = []
+    list_for_writing.each do |item|
+      list << item.to_hash
+    end
     File.open(path, 'w') do |file|
-      list_for_writing.each do |item|
-        file << JSON.dump(item.to_hash)
-        #file << "\n"
-      end
+      file << JSON.dump(list)
     end
   end
 
