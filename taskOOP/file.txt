@@ -1,10 +1,10 @@
-053af73f7d6af60576674c55066750f3 Clara G. Manley 11648.0
-afa0525f3bd6d823b35b1e565434dcf7 Marion T. Green 9984.0
-2e8bd4fe9dc215501b7cd1f158f05ee2 Donald R. Koontz 8700
-11bff5fecc1ebb4c34d5a21daee352de Max N. Torres 8700
-11521708ff9dca398b9f0dd3afe83e82 Jane J. Osborn 8000
-f4c76085bf249b0affd04751d95d6ecd Anita J. Isaacs 7500
-350b9343164c1acd8260851750c71653 David E. Caudill 7488.0
-1bfb1c33001be4f14cdb3774e621fa34 John Weinberg 7488.0
-95c0ba1e28abb6812252d917fc8cdeab Kristin G. Sachs 6750
-50ef17bc02f337a8cf441d8ea93bc4ea Kenny S. Nelson 5824.0
+54528d8ecb48dc8d9628929eec4d56fd Clara G. Manley 11648.0
+2c66383bc4ccc15cb548b4717a211979 Marion T. Green 9984.0
+acbb43b8188d843685f1790ccd3a01e4 Donald R. Koontz 8700
+5c44543a64af2b0a07402c79faa0f9b3 Max N. Torres 8700
+07b740079412900328949410dd045782 Jane J. Osborn 8000
+ca3ca24cc3acf8e03c336b389fb5b4bc Anita J. Isaacs 7500
+8a6ec0776a9276c8433cbbee2f4824b8 David E. Caudill 7488.0
+197bde27e27347c191948462cb1d6709 John Weinberg 7488.0
+a44b6e6101045bf90bd0739cc7f2a30b Kristin G. Sachs 6750
+a9cfbd4173c0d4008ae011d60c477d9c Kenny S. Nelson 5824.0
