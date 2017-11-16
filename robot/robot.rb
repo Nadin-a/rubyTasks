@@ -13,10 +13,10 @@ class Robot
     previous_value = SIDES[SIDES.index(@direction)-1]
     next_value = SIDES[SIDES.index(@direction)+1]
     case rotation
-      when 'LEFT'
-        @direction = previous_value
-      when 'RIGHT'
-        @direction = next_value.nil? ? SIDES[0] : next_value
+    when 'LEFT'
+      @direction = previous_value
+    when 'RIGHT'
+      @direction = next_value.nil? ? SIDES[0] : next_value
     end
   end
 
@@ -29,20 +29,20 @@ class Robot
     next_y = @coord[:y]
 
     case @direction
-      when 'NORTH'
-        next_y += 1
-      when 'EAST'
-        next_x += 1
-      when 'SOUTH'
-        next_y -= 1
-      when 'WEST'
-        next_x -= 1
+    when 'NORTH'
+      next_y += 1
+    when 'EAST'
+      next_x += 1
+    when 'SOUTH'
+      next_y -= 1
+    when 'WEST'
+      next_x -= 1
     end
     position = {x: next_x, y: next_y}
   end
 
   def report
-    p coord[:x].to_s + ' : ' + coord[:y].to_s + ' '+ @direction
+    p "#{coord[:x].to_s}  :  #{coord[:y].to_s}  #{@direction}"
   end
 
 end

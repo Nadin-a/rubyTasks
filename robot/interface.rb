@@ -27,21 +27,21 @@ class Interface
   def execute
     p 'Execution command: ' + @command.name
     case @command.name
-      when 'PLACE'
-        if robot.nil?
-          information = {x: @command.args[1].to_i, y: @command.args[2].to_i, dir: @command.args[3]}
-          place_robot(information)
-        end
-      when 'MOVE'
-        step
-      when 'REPORT'
-        @robot.report
-      when 'RIGHT', 'LEFT'
-        @robot.change_direction(@command.name)
-      when 'HELP'
-        p 'try MOVE/REPORT/RIGHT/LEFT'
-      when 'EXIT'
-        system.exit!
+    when 'PLACE'
+      if robot.nil?
+        information = {x: @command.args[1].to_i, y: @command.args[2].to_i, dir: @command.args[3]}
+        place_robot(information)
+      end
+    when 'MOVE'
+      step
+    when 'REPORT'
+      @robot.report
+    when 'RIGHT', 'LEFT'
+      @robot.change_direction(@command.name)
+    when 'HELP'
+      p 'try MOVE/REPORT/RIGHT/LEFT'
+    when 'EXIT'
+      system.exit!
     end
     read
   end

@@ -11,13 +11,13 @@ class Command
 
   def validate?(robot, table)
     case @name
-      when 'PLACE'
-        validate_place?(robot, table)
-      when 'MOVE', 'REPORT', 'LEFT', 'RIGHT', 'HELP', 'EXIT'
-        robot && table ? true : false
-      else
-        p 'Uncorrect command'
-        false
+    when 'PLACE'
+      validate_place?(robot, table)
+    when 'MOVE', 'REPORT', 'LEFT', 'RIGHT', 'HELP', 'EXIT'
+      robot && table ? true : false
+    else
+      p 'Uncorrect command'
+      false
     end
   end
 
